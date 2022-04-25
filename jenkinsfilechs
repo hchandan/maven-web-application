@@ -2,6 +2,8 @@ node {
 
 def mavenHome = tool name:"Maven3.8.4"
 
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5'))])
+
 //github code 
 stage('github_repo'){
 git branch: 'development', credentialsId: 'cc14dff1-c976-462b-9021-e8bb7db93cb7', url: 'https://github.com/hchandan/maven-web-application.git'
